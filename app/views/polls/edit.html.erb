@@ -1,0 +1,9 @@
+<h1>Polls</h1>
+<p><%= link_to "http//localhost:3000/edit/#{@poll.edit_key}", poll_edit_path(@poll.edit_key) %></p>
+<p><%= link_to "http//localhost:3000/#{@poll.share_key}", poll_share_path(@poll.share_key) %></p>
+
+
+<p> <%= render 'form' %></p>
+
+
+

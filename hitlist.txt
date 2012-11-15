@@ -1,0 +1,8 @@
+- create a new poll with a name of my choice
+- edit the poll.
+- The link should be difficult to guess.
+- As a poll maker, I should get a link to give out to people to take the poll
+
+# edit page will be a poll dashboard
+  # show the secret poll edit link and the secret poll submission page as well
+  # as any statistics ,etc
