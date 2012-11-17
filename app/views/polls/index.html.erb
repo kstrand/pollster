@@ -6,6 +6,7 @@
     <tr><td><%= poll.name %></td>
         <td><%= link_to "Edit Poll", poll_edit_path(poll.edit_key) %></td>
         <td><%= link_to "Share Poll", poll_share_path(poll.share_key) %></td>
+        <td><%= link_to "Delete Poll", poll_path(poll), :method => :delete %></td>
     </tr>
   <% end %>
 
