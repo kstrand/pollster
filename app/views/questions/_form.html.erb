@@ -1,0 +1,14 @@
+<table class="table table-striped">
+
+<%= form_for Question.new(:poll_id => @poll.id) do |f| %>
+  <%= f.hidden_field :poll_id %>
+  <div class="field">
+    <tr><%= f.label 'Create A New Question:' %></tr>
+    <tr><%= f.text_field :body, class: 'span5' %></tr>
+  </div>
+
+  <div class="actions">
+    <tr><%= f.submit class: 'btn' %></tr>
+  </div>
+<% end %>
+</table>

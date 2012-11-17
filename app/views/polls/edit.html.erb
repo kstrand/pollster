@@ -1,9 +1,30 @@
 <h1>Polls</h1>
-<p><%= link_to "http//localhost:3000/edit/#{@poll.edit_key}", poll_edit_path(@poll.edit_key) %></p>
-<p><%= link_to "http//localhost:3000/#{@poll.share_key}", poll_share_path(@poll.share_key) %></p>
+<table class="table table-striped">
+<p>
+<tr><td>Secret Edit Poll Link:</td><td>Poll Submission Link:</td></tr>
+<tr>
+<td><%= link_to "http//localhost:3000/edit/#{@poll.edit_key}", poll_edit_path(@poll.edit_key) %></td>
+<td><%= link_to "http//localhost:3000/#{@poll.share_key}", poll_share_path(@poll.share_key) %></td>
+</tr>
+</p>
+</table>
+
+<%= form_for @poll, :url => poll_update_path(@poll.edit_key) do |poll_form| %>
+<table class="table table-striped">
+  <tr><td><%= poll_form.label 'Name of the Poll' %></td></tr>
+  <tr><td><%= poll_form.text_field :name, class: 'span5' %></td></tr>
+  <tr><td>Questions:</td><td>Remove?</td></tr>
+
+    <%= render :partial => 'questions/update_form', :locals => {:form => poll_form} %>
+
+  <tr>
+    <td>
+      <div class="actions"><%= poll_form.submit %></div>
+    <td>
+  </tr>
+
+</table>
+<% end %>
 
 
-<p> <%= render 'form' %></p>
-
-
-
+<p> <%= render 'questions/form', :poll => @poll %></p>

@@ -1,11 +1,13 @@
 TazkasPollster::Application.routes.draw do
-  resources :polls, :only => [:index, :new, :create, :destroy, :update]
+  resources :polls, :only => [:index, :new, :create, :destroy]
+  resources :questions
 
   # old edit poll
   # edit_poll GET    /polls/:id/edit(.:format) polls#edit
 
-  get 'polls/edit/:edit_key(.:format)'  => 'polls#edit', :as => :poll_edit
-  get 'polls/:share_key'                => "polls#show", :as => :poll_share
+  get 'polls/edit/:edit_key(.:format)'    => 'polls#edit',   :as => :poll_edit
+  get 'polls/:share_key'                  => "polls#show",   :as => :poll_share
+  put 'polls/update/:edit_key(.:format)'  => "polls#update", :as => :poll_update
 
 
   root to: 'polls#index'

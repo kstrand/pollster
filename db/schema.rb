@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115194505) do
+ActiveRecord::Schema.define(:version => 20121115225939) do
 
   create_table "polls", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20121115194505) do
     t.datetime "updated_at", :null => false
     t.string   "edit_key"
     t.string   "share_key"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "poll_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

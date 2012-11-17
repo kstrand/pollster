@@ -1,9 +1,13 @@
-<h1>Polls</h1>
-<p>Here are all the polls:</p>
-  <p><% @polls.each do |poll| %></p>
-    <p><%= poll.name %> |
-    <%= link_to "Edit Poll", poll_edit_path(poll.edit_key) %> |
-    <%= link_to "Share Poll", poll_share_path(poll.share_key) %></p>
+<table class="table table-striped">
+<tr><h1>Polls</h1></tr>
+<tr><td>Poll Name:</td><td></td><td></td></tr>
+
+  <% @polls.each do |poll| %>
+    <tr><td><%= poll.name %></td>
+        <td><%= link_to "Edit Poll", poll_edit_path(poll.edit_key) %></td>
+        <td><%= link_to "Share Poll", poll_share_path(poll.share_key) %></td>
+    </tr>
   <% end %>
 
-<p><%= link_to "Create A New Poll", new_poll_path %></p>
+<tr><td><%= link_to "Create A New Poll", new_poll_path %></td></tr>
+</table>

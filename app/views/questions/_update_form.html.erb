@@ -1,0 +1,9 @@
+
+<%= form.fields_for :questions do |question_form| %>
+  <tr>
+  <div class="field">
+    <td><%= question_form.text_field :body %></td>
+    <td><%= question_form.check_box :_destroy %></td>
+  </div>
+  </tr>
+<% end %>

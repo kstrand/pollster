@@ -6,3 +6,20 @@
 # edit page will be a poll dashboard
   # show the secret poll edit link and the secret poll submission page as well
   # as any statistics ,etc
+
+  Create a action in polls controller
+  Create a route that routes to that action
+  Figure out how to get form_for to submit to that route that you created
+
+  <% @poll.questions.each do |q| %>
+    <tr>
+    <td>Question Body</td>
+    <td></td>
+    <td></td>
+    </tr>
+    <input name="poll[questions][<%= q.id %>][boddfdfy]" value="<%= q.body %>">
+
+    <%= text_field_tag :body, "hi", :name => "poll[questions][#{q.id}][body]" %>
+
+  <% end %>
+

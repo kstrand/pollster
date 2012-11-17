@@ -1,6 +1,8 @@
 class Poll < ActiveRecord::Base
   attr_accessible :name, :share_key, :edit_key
   before_create :key_gen
+  has_many :questions
+  accepts_nested_attributes_for :questions#, :allow_destroy => true
 
 
   private

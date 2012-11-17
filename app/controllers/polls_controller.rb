@@ -15,15 +15,26 @@ class PollsController < ApplicationController
 
   def edit
     @poll = Poll.find_by_edit_key(params[:edit_key])
+    @questions = @poll.questions
+
     #find the poll as it comes in through the custom routes
     #find the poll via the edit key in the params
     #make sure to account for any exceptions
   end
 
+
   def update
-    @poll = Poll.find(params[:id])
-    @poll.inspect
-    @poll.update_attributes(params[:poll])
+    @poll = Poll.find_by_edit_key(params[:edit_key])
+    questions = params[:poll].delete(:questions_attributes)
+    @poll.update_attributes!(params[:poll])
+    questions.each_value do |question|
+      @question = Question.find(question[:id])
+      if question.delete(:_destroy).to_i == 1
+        @question.destroy
+      else
+        @question.update_attributes!(question)
+      end
+    end
     redirect_to poll_edit_path(@poll.edit_key)
   end
 
