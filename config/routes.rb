@@ -8,7 +8,7 @@ TazkasPollster::Application.routes.draw do
   get     'polls/edit/:edit_key(.:format)'    =>  'polls#edit',     :as => :poll_edit
   get     'polls/:share_key'                  =>  "polls#show",     :as => :poll_share
   put     'polls/update/:edit_key(.:format)'  =>  "polls#update",   :as => :poll_update
-  # delete  'polls/:id(.:format)'               =>  "polls#destroy",  :as => :poll_destroy
+  post    'polls?method=responses(.:format)' => 'polls#responses', :as => :get_responses
 
   root to: 'polls#index'
   # add a route to go to the edit page of the poll using the edit_key

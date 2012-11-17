@@ -7,3 +7,5 @@
   </div>
   </tr>
 <% end %>
+
+<%= text_field_tag :body, q.body, :name => "poll[questions][#{q.id}][body]" %>

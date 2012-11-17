@@ -1,3 +1,15 @@
-<h1>Take the Poll!</h1>
-<h2><%= @poll.name %></h2>
+<%= form_tag(:controller => "polls", :method => "responses") do %>
+<table class="table table-striped">
+  <tr><h1>Take the Poll!</h1></tr>
+  <tr><h2><%= @poll.name %></h2></tr>
 
+  <% @questions.each do |question| %>
+    <tr><td><%= question.body %></td></tr>
+    <tr><td>
+      <%= text_field_tag :response, "Enter response", :name => "poll[questions][#{question.id}][response]" %>
+    </td></tr>
+  <% end %>
+    <tr><td><%= submit_tag("Submit Responses") %></td></tr>
+
+</table>
+<% end %>

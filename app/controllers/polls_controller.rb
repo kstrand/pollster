@@ -46,5 +46,10 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find_by_share_key(params[:share_key])
+    @questions = @poll.questions
+  end
+
+  def responses
+    @poll = Poll.find_by_share_key(params[:share_key])
   end
 end
