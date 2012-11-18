@@ -5,5 +5,8 @@ class ChoicesController < ApplicationController
     @choice.save
     redirect_to manage_choices_path(@choice.question.poll.edit_key, @choice.question_id)
   end
+  
+  
+  
 
 end
