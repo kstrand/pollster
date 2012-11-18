@@ -17,6 +17,7 @@ class PollsController < ApplicationController
     @poll = Poll.find_by_edit_key(params[:edit_key])
     @questions = @poll.questions
 
+
     #find the poll as it comes in through the custom routes
     #find the poll via the edit key in the params
     #make sure to account for any exceptions
@@ -49,6 +50,13 @@ class PollsController < ApplicationController
     @questions = @poll.questions
   end
 
+
+  def show_responses
+    @poll = Poll.find_by_edit_key(params[:edit_key])
+    @questions = @poll.questions
+  end
+
+
   def responses
     # @poll = Poll.find_by_share_key(params[:share_key])
     answers = params[:poll][:questions]
@@ -58,4 +66,6 @@ class PollsController < ApplicationController
     end
     redirect_to root_path
   end
+
+
 end

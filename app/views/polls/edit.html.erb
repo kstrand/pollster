@@ -1,10 +1,11 @@
 <h1>Polls</h1>
-<table class="table table-striped">
+<table class="table">
 <p>
-<tr><td>Secret Edit Poll Link:</td><td>Poll Submission Link:</td></tr>
+<tr><td>Secret Edit Poll Link:</td><td>Poll Submission Link:</td><td>Poll Responses Link:</td></tr>
 <tr>
 <td><%= link_to "http//localhost:3000/edit/#{@poll.edit_key}", poll_edit_path(@poll.edit_key) %></td>
 <td><%= link_to "http//localhost:3000/#{@poll.share_key}", poll_share_path(@poll.share_key) %></td>
+<td><%= link_to "http//localhost:3000/#{@poll.edit_key}", get_responses_path(@poll.edit_key) %></td>
 </tr>
 </p>
 </table>
@@ -15,7 +16,7 @@
   <tr><td><%= poll_form.text_field :name, class: 'span5' %></td></tr>
   <tr><td>Questions:</td><td>Remove?</td></tr>
 
-    <%= render :partial => 'questions/update_form', :locals => {:form => poll_form} %>
+    <%= render :partial => 'questions/update_form', :locals => {:form => poll_form}, :poll => @poll %>
 
   <tr>
     <td>

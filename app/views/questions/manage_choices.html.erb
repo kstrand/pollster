@@ -1,0 +1,10 @@
+<h1><% @question.body %></h1>
+
+<%= form_for @question do |question_form| %>
+
+ <%= render :partial => 'choices/update_form', :locals => {:form => question_form} %>
+
+ <%= question_form.submit %>
+<% end %>
+
+  <%= render 'choices/form' %>

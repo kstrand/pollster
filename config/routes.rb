@@ -5,10 +5,12 @@ TazkasPollster::Application.routes.draw do
   # old edit poll
   # edit_poll GET    /polls/:id/edit(.:format) polls#edit
 
-  get     'polls/edit/:edit_key(.:format)'    =>  'polls#edit',     :as => :poll_edit
-  get     'polls/:share_key'                  =>  "polls#show",     :as => :poll_share
-  put     'polls/update/:edit_key(.:format)'  =>  "polls#update",   :as => :poll_update
-  post    'polls/responses/:share_key(.:format)' => 'polls#responses', :as => :get_responses
+  get     'polls/edit/:edit_key(.:format)'            =>  'polls#edit',            :as => :poll_edit
+  get     'polls/:share_key'                          =>  "polls#show",            :as => :poll_share
+  put     'polls/update/:edit_key(.:format)'          =>  "polls#update",          :as => :poll_update
+  post    'polls/responses/:share_key(.:format)'      =>  'polls#responses',       :as => :get_responses
+  get     'polls/responses/view/:edit_key(.:format)'  =>  'polls#show_responses',  :as => :get_responses
+  get     'peanaut/choices/manage/:edit_key/:question_id(.:format)' => 'questions#manage_choices', :as => :manage_choices
 
   root to: 'polls#index'
   # add a route to go to the edit page of the poll using the edit_key

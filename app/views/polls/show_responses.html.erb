@@ -1,0 +1,12 @@
+<table class="table">
+
+<% @questions.each do |question| %>
+
+  <tr><td><h2><%= question.body %></h2></td></tr>
+
+  <% question.responses.each do |response| %>
+    <tr><td><%= response.response %></td></tr>
+  <% end %>
+
+<% end %>
+</table>
