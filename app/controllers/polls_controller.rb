@@ -50,6 +50,12 @@ class PollsController < ApplicationController
   end
 
   def responses
-    @poll = Poll.find_by_share_key(params[:share_key])
+    # @poll = Poll.find_by_share_key(params[:share_key])
+    answers = params[:poll][:questions]
+    answers.each do |question_id,response|
+      @answer = Response.new(:response => response[:response], :question_id => question_id)
+      @answer.save
+    end
+    redirect_to root_path
   end
 end

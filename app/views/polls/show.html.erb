@@ -1,4 +1,4 @@
-<%= form_tag(:controller => "polls", :method => "responses") do %>
+<%= form_tag(get_responses_path(@poll.share_key), :method => "responses") do %>
 <table class="table table-striped">
   <tr><h1>Take the Poll!</h1></tr>
   <tr><h2><%= @poll.name %></h2></tr>
