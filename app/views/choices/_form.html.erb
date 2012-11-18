@@ -1,7 +1,7 @@
-<%= form_for Choice.new(:question_id => @question.id) do |f| %>
-
-  <%= f.hidden_field :question_id %>
-  <%= f.text_field :option %>
-  <%= f.submit class: 'btn' %>
-
+<%= form_for Choice.new(:question_id => @question.id) do |f| %> 
+  <div class="field">
+    <%= f.hidden_field :question_id %>
+    <%= f.text_field :option %>
+    <%= f.submit class: 'btn' %>
+  </div>
 <% end %>

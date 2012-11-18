@@ -12,14 +12,18 @@ class QuestionsController < ApplicationController
   end
 
   def update
-
     @question = Question.find(params[:id])
-
     choices = params[:question].delete(:choices_attributes)
     @question.update_attributes!(params[:question])
-
+    choices.each_value do |choice|
+      @choice = Choice.find(choice[:id])
+       if choice.delete(:_destroy).to_i == 1
+         @choice.destroy
+      else
+         @choice.update_attributes!(choice)
+      end
+    end
     redirect_to manage_choices_path(@question.poll.edit_key, @question.id)
-
   end
 end
 

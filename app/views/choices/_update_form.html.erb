@@ -1,8 +1,10 @@
 <%= form.fields_for :choices do |choices_form| %>
-
+<table>
   <div class="field">
-    <td><%= choices_form.text_field :option %></td>
-    <td><%= choices_form.check_box :_destroy%></td>
+    <tr>
+      <td><%= choices_form.text_field :option  %></td>
+      <td><%= choices_form.check_box :_destroy %></td>
+    </tr>
   </div>
-
+</table>
 <% end %>
