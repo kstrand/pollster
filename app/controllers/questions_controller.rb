@@ -11,6 +11,12 @@ class QuestionsController < ApplicationController
     @choices = @question.choices
   end
 
+  def update
+    @questions = Question.find_by_question_id(params[:questions_id])
+
+    @questions.update!
+  end
+
 
 end
 
@@ -24,3 +30,10 @@ end
 # add edit delete options and then on our pole responses page check if question has any optioins
 #if it does make radio butttons so user can choosse the options if not regular text box.
 #ability to add options to a questions add a view in the same page or link to another page.
+
+
+#params that come throu
+
+
+
+#{}"question"=>{"choices_attributes"=>{"0"=>{"option"=>"Barack Obama", "_destroy"=>"0", "id"=>"2"}, "1"=>{"option"=>"Mitt romney sadfsdaf", "_destroy"=>"0", "id"=>"3"}

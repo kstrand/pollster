@@ -1,6 +1,7 @@
 TazkasPollster::Application.routes.draw do
   resources :polls, :only => [:index, :new, :create, :destroy]
   resources :questions
+  resources :choices
 
   # old edit poll
   # edit_poll GET    /polls/:id/edit(.:format) polls#edit
