@@ -6,6 +6,11 @@
     <td><%= question_form.check_box :_destroy %></td>
   </div>
   </tr>
-  <tr><td><%= link_to "Manage Options", manage_choices_path(@poll.edit_key,@poll.id ) %></td><td></td></tr>
+  <tr><td>
+    Current Option Count: <%= question_form.object.choices.length %>  |
+    <%= link_to "Manage Options", manage_choices_path(@poll.edit_key, question_form.object.id) %>
+
+
+    </td><td></td></tr>
 <% end %>
 

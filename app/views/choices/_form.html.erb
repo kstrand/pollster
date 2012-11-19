@@ -1,4 +1,4 @@
-<%= form_for Choice.new(:question_id => @question.id) do |f| %> 
+<%= form_for Choice.new(:question_id => @question.id) do |f| %>
   <div class="field">
     <%= f.hidden_field :question_id %>
     <%= f.text_field :option %>

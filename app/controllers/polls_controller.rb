@@ -20,7 +20,7 @@ class PollsController < ApplicationController
 
     #find the poll as it comes in through the custom routes
     #find the poll via the edit key in the params
-    #make sure to account for any exceptions
+    #make sure to acco£unt for any exceptions
   end
 
 
@@ -66,6 +66,23 @@ class PollsController < ApplicationController
     end
     redirect_to root_path
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 end

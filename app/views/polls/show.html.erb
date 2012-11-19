@@ -6,7 +6,18 @@
   <% @questions.each do |question| %>
     <tr><td><%= question.body %></td></tr>
     <tr><td>
+      <% if question.choices.any? %>
+      <div class="radio">
+        <% question.choices.each do |choice| %>
+          <%= radio_button_tag("poll[questions][#{question.id}][response]", "#{choice.id}") %>
+          <%= label_tag(choice.option) %>
+          <% end %>
+      </div>
+      <% else %>
+
       <%= text_field_tag :response, nil, :placeholder => "Enter response", :name => "poll[questions][#{question.id}][response]" %>
+
+      <% end %>
     </td></tr>
   <% end %>
     <tr><td><%= submit_tag("Submit Responses") %></td></tr>

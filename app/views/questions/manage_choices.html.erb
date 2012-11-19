@@ -8,3 +8,5 @@
 <% end %>
 
   <%= render 'choices/form', :question => @question %>
+
+  <%= link_to ' link back to poll', poll_edit_path(@question.poll.edit_key) %>

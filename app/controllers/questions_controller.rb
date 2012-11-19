@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     choices = params[:question].delete(:choices_attributes)
-    @question.update_attributes!(params[:question])
+    # @question.update_attributes!(params[:question])
     choices.each_value do |choice|
       @choice = Choice.find(choice[:id])
        if choice.delete(:_destroy).to_i == 1

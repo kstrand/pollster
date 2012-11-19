@@ -2,11 +2,30 @@
 
 <% @questions.each do |question| %>
 
+  <% if question.choices.any? %>
+
   <tr><td><h2><%= question.body %></h2></td></tr>
 
-  <% question.responses.each do |response| %>
-    <tr><td><%= response.response %></td></tr>
+    <% question.choices.each do |choice| %>
+
+    <tr>
+      <td><%= choice.option %></td>
+      <td><%= question.responses.where("response = ?", choice.id).length %></td>
+    </tr>
+
+    <% end %>
+
+
+  <% else %>
+
+    <tr><td><h2><%= question.body %></h2></td></tr>
+
+    <% question.responses.each do |response| %>
+      <tr><td><%= response.response %></td></tr>
+    <% end %>
+
   <% end %>
+
 
 <% end %>
 </table>
